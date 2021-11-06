@@ -291,8 +291,8 @@ th, td {
 					<td><select class="form-select form-select-lg mb-3"
 						name="genderSel" id="genderSel" style="width: 100px;">
 							<option value="">性別全体</option>
-							<option value="male">男性</option>
-							<option value="female">女性</option>
+							<option value="m">男性</option>
+							<option value="f">女性</option>
 					</select></td>
 					<td><select class="form-select form-select-lg mb-3"
 						name="ageSel" id="ageSel" style="width: 100px;">

@@ -67,6 +67,7 @@ public class MapController {
 		ArrayList<TeacherVO> result = new ArrayList<TeacherVO>();
 		ArrayList<TeacherVO> result2 = new ArrayList<TeacherVO>();
 		ArrayList<TeacherVO> result3 = new ArrayList<TeacherVO>();
+		System.out.println(tc_gender);
 		if (tc_gender.equals("")) {
 			result = list;
 		} else {
@@ -86,7 +87,6 @@ public class MapController {
 				}
 			}
 		}
-		System.out.println(tc_gen);
 		if(tc_gen.equals("")) {
 			result3 = result2;
 		} else {
@@ -135,7 +135,6 @@ public class MapController {
 			}
 			
 		}
-		System.out.println(result3);
 		return result3;
 	
 	}	

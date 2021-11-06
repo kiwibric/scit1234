@@ -19,6 +19,8 @@
 			</c:when>
 			<c:otherwise>
 				<li><a href="loginForm">로그인</a></li>
+				<li><a href="${naver_url }"><img width="300" src="/resources/images/naver.png" alt="naver"></a>
+				<li><a href="${google_url }"><img width="300" src="/resources/images/google.png" alt="google"></a>
 			</c:otherwise>
 		</c:choose>
 	</ul>
