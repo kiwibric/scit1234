@@ -71,4 +71,5 @@ public class JoinLoginService {
 		session.removeAttribute("stLogin");
 		return "redirect:/";
 	}
+	
 }

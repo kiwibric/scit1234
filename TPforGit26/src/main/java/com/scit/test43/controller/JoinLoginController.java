@@ -1,7 +1,9 @@
 package com.scit.test43.controller;
 
-import javax.inject.Inject;   
+import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.google.connect.GoogleConnectionFactory;
 import org.springframework.social.oauth2.GrantType;
@@ -9,6 +11,7 @@ import org.springframework.social.oauth2.OAuth2Operations;
 import org.springframework.social.oauth2.OAuth2Parameters;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,8 +19,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.scit.test43.SNSLogin;
 import com.scit.test43.SnsValue;
 import com.scit.test43.service.JoinLoginService;
+import com.scit.test43.service.UserService;
 import com.scit.test43.vo.StudentVO;
 import com.scit.test43.vo.TeacherVO;
+import com.scit.test43.vo.User;
 
 @Controller
 public class JoinLoginController {
@@ -37,32 +42,62 @@ public class JoinLoginController {
 	
 	@Autowired
 	private JoinLoginService service;
+	
+	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(TeacherVO account) {
 		return service.login(account);
 	}
 	
-	@RequestMapping(value = "/auth/google/callback", method = {RequestMethod.GET, RequestMethod.POST})
-	public String snsLoginCallback(Model model, @RequestParam String code) throws Exception{
-		SNSLogin snsLogin = new SNSLogin(googleSns);
-		String profile = snsLogin.getUserProfile(code);
-		System.out.println("Profile>>"+profile);
-		model.addAttribute("result", profile);
+	@RequestMapping(value = "/auth/{snsService}/callback", 
+			method = { RequestMethod.GET, RequestMethod.POST})
+	public String snsLoginCallback(@PathVariable String snsService,
+			Model model, @RequestParam String code, HttpSession session) throws Exception {
+		
+		SnsValue sns = null;
+		if (StringUtils.equals("naver", snsService))
+			sns = naverSns;
+		else
+			sns = googleSns;
+		
+		// 1. code를 이용해서 access_token 받기
+		// 2. access_token을 이용해서 사용자 profile 정보 가져오기
+		SNSLogin snsLogin = new SNSLogin(sns);
+		
+		User snsUser = snsLogin.getUserProfile(code); // 1,2번 동시
+		System.out.println("Profile>>" + snsUser);
+		
+		// 3. DB 해당 유저가 존재하는 체크 (googleid, naverid 컬럼 추가)
+//		User user = service2.getBySns(snsUser);
+//		if (user == null) {
+//			model.addAttribute("result", "존재하지 않는 사용자입니다. 가입해 주세요.");
+//			
+//			//미존재시 가입페이지로!!
+//			
+//		} else {
+//			model.addAttribute("result", user.getUname() + "님 반갑습니다.");
+//			
+			// 4. 존재시 강제로그인
+//			session.setAttribute(SessionNames.LOGIN, user);
+//		}
+		
+		
 		return "loginResult";
 	}
 	
-	@RequestMapping(value = "/login2", method = RequestMethod.POST)
-	public void login2(Model model) throws Exception{
+	@RequestMapping(value = "/login2", method = RequestMethod.GET)
+	public void login2(Model model) throws Exception {
+		
 		SNSLogin snsLogin = new SNSLogin(naverSns);
 		model.addAttribute("naver_url", snsLogin.getNaverAuthURL());
+		
+//		SNSLogin googleLogin = new SNSLogin(googleSns);
+//		model.addAttribute("google_url", googleLogin.getNaverAuthURL());
 		
 		/* 구글code 발행을 위한 URL 생성 */
 		OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
 		String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
-
 		model.addAttribute("google_url", url);
-
-
 	}
 	
 
