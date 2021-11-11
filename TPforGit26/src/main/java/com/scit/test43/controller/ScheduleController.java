@@ -27,6 +27,9 @@ public class ScheduleController {
 	@Autowired
 	private ScheduleService service;
 	
+	@Autowired
+	private ScheduleDAO dao;
+	
 	@RequestMapping(value = "/TscheduleForm", method = RequestMethod.GET)
 	public String TscheduleForm(String tc_id) {
 		return "TscheduleForm";
@@ -48,8 +51,25 @@ public class ScheduleController {
 		System.out.println("b");
 		return list;
 	}
-	
-	
+	@RequestMapping(value = "/insertSchedule", method= RequestMethod.GET)
+	public String insertSchedule(TscheduleVO schedule, HttpSession session) {
+	 
+		
+		String tc_id = (String) session.getAttribute("tcLogin");
+		schedule.setTc_id(tc_id); 
+		System.out.println("선생님 로그인 정보"+tc_id);
+		
+		
+		int cnt = dao.insertSchedule(schedule);
+		if(cnt>0) {
+			System.out.println("인서트 성공");
+		}else{
+			System.out.println("인서트 실패");
+		}
+		return "redirect:/TscheduleForm";
+		
+		
+	}
 	
 
 }

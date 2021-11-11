@@ -34,7 +34,6 @@
   	contentHeight: 'auto', 
   	eventSources: [{
   		events: function(info, successCallback, failureCallback) {
-  			alert("event check");
   			$.ajax({
   				url: 'Tschedule',
   				method: 'get',
@@ -53,19 +52,41 @@
     </script>
     
     <div>
-   <form>
+   <form name="insertSchedule" action="insertSchedule" method="get">
+   <h3>일정 추가</h3>
      <table>
+    
      <tr>
      	<td>
-     		<input type="text" name="title" id="title" >
-     	
-     	</td>
-     
-     	<td>
-     		<input type="text" name="">
+     		표기할 수업 명: <input type="text" name="title" id="title" >
      	</td>
      </tr>
-     
+     <tr>
+     	<td>
+     		클래스 이름: <input type="text" name="classnames">
+     	</td>
+     </tr>
+     <tr>
+     	<td>
+     		시작일: <input type="date" name="start">
+     	</td>
+     </tr>
+     <tr>
+     	<td>
+     		종료일 : <input type="date" name="end">
+     	</td>
+     	
+     </tr>
+     <tr>
+     	<td>
+     		학생 아이디 : <input type="text" name="st_id">
+     	</td>
+     </tr>
+    <tr>
+     	<td>
+     		<input type="submit" value="일정 저장">
+     	</td>
+     </tr>
      </table>
     
     

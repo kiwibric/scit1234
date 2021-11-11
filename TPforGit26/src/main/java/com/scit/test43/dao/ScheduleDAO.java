@@ -26,4 +26,15 @@ public class ScheduleDAO {
 		}
 		return scheduleList;
 	}
+	
+	public int insertSchedule(TscheduleVO schedule) {
+		int cnt = 0;
+		try {
+			ScheduleMapper mapper = session.getMapper(ScheduleMapper.class);
+			cnt = mapper.insertSchedule(schedule);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
 }
