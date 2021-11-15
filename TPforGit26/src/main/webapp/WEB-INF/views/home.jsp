@@ -10,46 +10,61 @@
 window.Kakao.init("70c694b81b704b2c7e731d265ba97a3a");
 
 function kakaoLogin(){
-	$.ajax({
-		url : "/list",
-		type : "get",
-		dataType : "json",
-		success : function(data) {
-			console.log("server data : " + data);
-
-			
-		},
-		error : function(e) {
-			console.log(e);
-		}
-	});
 	window.Kakao.Auth.login({
 		//redirectUri: 'http://localhost:8888/joinForm/',
-		scope:'profile_nickname, profile_image, gender, age_range',
+		scope:'profile_nickname, birthday, gender, account_email, profile_image',
 		success: function(authObj){
 			console.log(authObj);
 			window.Kakao.API.request({
 				url:'/v2/user/me', 
 				success: res=>{//각각의 테이블에 접근해서 중복확인 후 처리
 					const kakao_account = res.kakao_account;
+					console.log(kakao_account.email);
 					var userNick = kakao_account.profile.nickname;
+					var birthday = kakao_account.birthday;
+					var gender = kakao_account.gender;
+					var email = kakao_account.email;
+					var image = kakao_account.profile_image;
+					var check = 0;
 					$.ajax({
-						url : "/list",
+						url : "/tcCheck",
 						type : "get",
-						data : userNick,
 						dataType : "json",
+						data : {
+							"userNick" : userNick
+						},
 						success : function(data) {
 							console.log("server data : " + data);
-
+							if (data == true){
+								location.replace("/teacherMypage");
+							}
 							
 						},
 						error : function(e) {
 							console.log(e);
 						}
 					});
-					
+					$.ajax({
+						url : "/stCheck",
+						type : "get",
+						dataType : "json",
+						data : {
+							"userNick" : userNick
+						},
+						success : function(data) {
+							console.log("server data : " + data);
+							if (data == true){
+								location.replace("/map?st_id="+userNick);
+							}else{
+								location.replace("/joinForm?userNick="+userNick+"&birthday="+birthday+"&gender="+gender+"&email="+email+"&image="+image);
+							}
+							
+						},
+						error : function(e) {
+							console.log(e);
+						}
+					});
 					console.log(kakao_account);
-					console.log(kakao_account.age_range);
 					console.log(kakao_account.profile.nickname);
 				}
 			});
@@ -86,14 +101,15 @@ function kakaoLogout() {
 			</c:when>
 			<c:otherwise>
 				<li><a href="loginForm">로그인</a></li>
+				<li><a href="joinForm">join</a></li>
 				<!-- <li><a href="${naver_url }"><img width="300" src="/resources/images/naver.png" alt="naver"></a>
 				<li><a href="${google_url }"><img width="300" src="/resources/images/google.png" alt="google"></a> -->
 				<br>
-				 <a href="javascript:kakaoLogin();"><img width="300"
+				<a href="javascript:kakaoLogin();"><img width="300"
 					src="/resources/images/certi_kakao_login.png"></a>
 				<li onclick="kakaoLogout();"><a href="javascript:void(0)">
 						<span>카카오 로그아웃</span>
-				</a></li> 
+				</a></li>
 
 
 			</c:otherwise>

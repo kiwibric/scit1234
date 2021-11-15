@@ -31,4 +31,34 @@ public class JoinLoginDAO {
 		}	
 		return teacher;
 	}
+	public boolean tcCheck(String userNick) {
+		System.out.println(userNick);
+		TeacherVO teacher = null;
+		boolean check = false;
+		try {
+			JoinLoginMapper mapper = session.getMapper(JoinLoginMapper.class);	
+			teacher = mapper.searchTeacher(userNick);
+			if(teacher != null) {
+				check = true;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}	
+		return check;
+	}
+	public boolean stCheck(String userNick) {
+		System.out.println("st" + userNick);
+		StudentVO student = null;
+		boolean check = false;
+		try {
+			JoinLoginMapper mapper = session.getMapper(JoinLoginMapper.class);	
+			student = mapper.searchStudent(userNick);
+			if(student != null) {
+				check = true;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}	
+		return check;
+	}
 }

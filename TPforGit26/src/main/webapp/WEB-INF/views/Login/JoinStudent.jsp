@@ -59,35 +59,26 @@ if(cnt == 0){
 </script>
 </head>
 <body>
-	<form action="/joinStudent" method="post" onclick="return memberCheck();">
+	<form action="/joinStudent" method="post"
+		onclick="return memberCheck();">
 		<table>
-	<tr>
-		<td>
-			<label>ID</label>
-		</td>
-		<td>
-			<input type = "text" id = "member_id" name = "member_id">
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<label>PassWord</label>
-		</td>
-		<td>
-			<input type = "password"  id = "member_pw" name = "member_pw">
-			</td>	
-		<td>
-		<label>남성</label>
-		<input type = "radio" id = "member_gender" name = "member_gender">
-		<label>여성</label>
-		<input type = "radio" id = "member_gender" name = "member_gender">
-		</td>
-	</tr>
-	<tr>
-		<td colspan = "2">
-			<input type = "submit" value = "회원가입">
-			</td>
-		</tr>
-	</table></form>
+			<tr>
+				<td><label>ID</label></td>
+				<td><input type="text" id="member_id" name="member_id">
+				</td>
+			</tr>
+			<tr>
+				<td><label>PassWord</label></td>
+				<td><input type="password" id="member_pw" name="member_pw">
+				</td>
+				<td><label>남성</label> <input type="radio" id="member_gender"
+					name="member_gender"> <label>여성</label> <input type="radio"
+					id="member_gender" name="member_gender"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="회원가입"></td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>

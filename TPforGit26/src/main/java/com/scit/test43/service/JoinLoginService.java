@@ -71,5 +71,16 @@ public class JoinLoginService {
 		session.removeAttribute("stLogin");
 		return "redirect:/";
 	}
+
+	public boolean tcCheck(String userNick) {
+		boolean check = dao.tcCheck(userNick);
+		return check;
+	}
+
+	public boolean stCheck(String userNick) {
+		boolean check = dao.stCheck(userNick);
+		return check;
+	}
+
 	
 }

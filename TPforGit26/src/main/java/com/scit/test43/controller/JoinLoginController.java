@@ -1,5 +1,7 @@
 package com.scit.test43.controller;
 
+import java.util.ArrayList; 
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.scit.test43.SNSLogin;
 import com.scit.test43.SnsValue;
@@ -105,7 +108,28 @@ public class JoinLoginController {
 	public String loginForm() {
 		return "/loginForm";
 	}
+	@ResponseBody
+	@RequestMapping(value = "/tcCheck", method = RequestMethod.GET)
+	public boolean tcCheck(String userNick) {
+		boolean check = service.tcCheck(userNick);	
+		return check;
+	}
+	@ResponseBody
+	@RequestMapping(value = "/stCheck", method = RequestMethod.GET)
+	public boolean stCheck(String userNick) {
+		boolean check = service.stCheck(userNick);	
+		return check;
+	}
 	
+	
+	@RequestMapping(value = "/joinForm", method = RequestMethod.GET)
+	public String joinForm(String userNick, String birthday, String email, String gender, String image, Model model) {
+		
+		String[] array = {userNick, birthday, gender, email, image};
+		model = model.addAttribute("array", array);
+		
+		return "/joinForm";
+	}
 	
 	@RequestMapping(value = "/Login/tcLogout", method = RequestMethod.GET)
 	public String tcLogout() {
