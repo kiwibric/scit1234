@@ -27,6 +27,20 @@ public class ScheduleDAO {
 		return scheduleList;
 	}
 	
+	public ArrayList<TscheduleVO> SscheduleList(String st_id){
+		ArrayList<TscheduleVO> scheduleList = null;
+		System.out.println(st_id);
+		try {
+			ScheduleMapper mapper = session.getMapper(ScheduleMapper.class);
+			scheduleList = mapper.SscheduleList(st_id);
+			System.out.println("dao까지 오나요?"+scheduleList);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return scheduleList;
+	}
+
+	
 	public int insertSchedule(TscheduleVO schedule) {
 		int cnt = 0;
 		try {

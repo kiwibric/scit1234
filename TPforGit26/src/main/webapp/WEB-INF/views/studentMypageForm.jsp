@@ -79,6 +79,7 @@ div img{
  		<button onclick="location.href='updateStMyInfoForm'" class="btn btn-secondary btn-lg" style="margin-bottom: 5px">정보 수정</button><br>
 		<!-- 후기관리 버튼 -->
 		<button onclick="location.href='selectMyReviewForm?rv_sender=${sessionScope.stLogin}'" class="btn btn-secondary btn-lg">후기 관리</button>
+				<button onclick="location.href='SscheduleForm?tc_id=${sessionScope.stLogin}'" class="btn btn-secondary btn-lg">스케쥴 관리</button>
  	</div>
 	
 	<div id="information">

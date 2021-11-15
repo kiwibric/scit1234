@@ -51,6 +51,21 @@ public class ScheduleController {
 		System.out.println("b");
 		return list;
 	}
+	
+	@RequestMapping(value = "/SscheduleForm", method = RequestMethod.GET)
+	public String SscheduleForm(String st_id) {
+		return "SscheduleForm";
+	}
+	
+	@RequestMapping(value = "/Sschedule", method = RequestMethod.GET)
+	public @ResponseBody ArrayList<TscheduleVO> Sschedule() {
+		
+		ArrayList<TscheduleVO> list = service.SscheduleList();
+		System.out.println("b");
+		return list;
+	}
+	
+	
 	@RequestMapping(value = "/insertSchedule", method= RequestMethod.GET)
 	public String insertSchedule(TscheduleVO schedule, HttpSession session) {
 	 

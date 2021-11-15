@@ -21,6 +21,20 @@
 		where
  		   tc_id =  #{tc_id} 
 </select>
+
+<select id="SscheduleList" parameterType="String" resultType="schedule" resultMap="calMap">
+		select 
+   			tc_id
+    		,st_id
+  			,tc_start
+  			,tc_end
+ 			,title
+ 		 	,classnames
+		from 
+   			tschedule
+		where
+ 		   st_id =  #{st_id} 
+</select>
 <insert id="insertSchedule" parameterType="schedule">
 insert into Tschedule(
     Tschedule_num   

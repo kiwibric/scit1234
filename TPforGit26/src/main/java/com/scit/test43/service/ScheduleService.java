@@ -30,4 +30,13 @@ public class ScheduleService {
 		System.out.println("a");
 		return scheduleList;
 	}
+	
+	public ArrayList<TscheduleVO> SscheduleList(){
+		String st_id = (String) session.getAttribute("stLogin");
+		ArrayList<TscheduleVO> scheduleList = dao.SscheduleList(st_id);
+		 
+		System.out.println("여기까지 오나요?service"+scheduleList);
+		System.out.println("a");
+		return scheduleList;
+	}
 }
