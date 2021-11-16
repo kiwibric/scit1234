@@ -12,19 +12,18 @@ window.Kakao.init("70c694b81b704b2c7e731d265ba97a3a");
 function kakaoLogin(){
 	window.Kakao.Auth.login({
 		//redirectUri: 'http://localhost:8888/joinForm/',
-		scope:'profile_nickname, birthday, gender, account_email, profile_image',
+		scope:'profile_nickname, gender, account_email, profile_image',
 		success: function(authObj){
 			console.log(authObj);
 			window.Kakao.API.request({
 				url:'/v2/user/me', 
 				success: res=>{//각각의 테이블에 접근해서 중복확인 후 처리
 					const kakao_account = res.kakao_account;
-					console.log(kakao_account.email);
+					console.log(kakao_account.profile.profile_image_url);
 					var userNick = kakao_account.profile.nickname;
-					var birthday = kakao_account.birthday;
 					var gender = kakao_account.gender;
 					var email = kakao_account.email;
-					var image = kakao_account.profile_image;
+					var image = kakao_account.profile.profile_image_url;
 					var check = 0;
 					$.ajax({
 						url : "/tcCheck",
@@ -34,9 +33,10 @@ function kakaoLogin(){
 							"userNick" : userNick
 						},
 						success : function(data) {
-							console.log("server data : " + data);
+							console.log("server data : tc" + data);
 							if (data == true){
-								location.replace("/teacherMypage");
+								location.replace("/teacherMypageTemp?userNick="+userNick);
+								//세션으로 로그인 정보 넘겨줘야됨
 							}
 							
 						},
@@ -56,7 +56,7 @@ function kakaoLogin(){
 							if (data == true){
 								location.replace("/map?st_id="+userNick);
 							}else{
-								location.replace("/joinForm?userNick="+userNick+"&birthday="+birthday+"&gender="+gender+"&email="+email+"&image="+image);
+								location.replace("/joinForm?userNick="+userNick+"&gender="+gender+"&email="+email+"&image="+image);
 							}
 							
 						},
@@ -64,8 +64,6 @@ function kakaoLogin(){
 							console.log(e);
 						}
 					});
-					console.log(kakao_account);
-					console.log(kakao_account.profile.nickname);
 				}
 			});
 		}

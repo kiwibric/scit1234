@@ -82,5 +82,16 @@ public class JoinLoginService {
 		return check;
 	}
 
+	public int joinStudent(StudentVO student) {
+		int success = dao.joinStudent(student);
+		return success;
+		
+	}
+
+	public int joinTeacher(TeacherVO teacher) {
+		int success = dao.joinTeacher(teacher);
+		return success;
+	}
+
 	
 }

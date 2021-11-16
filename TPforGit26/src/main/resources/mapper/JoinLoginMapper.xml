@@ -22,7 +22,8 @@
 		where
 		st_id = #{st_id}
 	</select>
-	<select id="searchTeacher" parameterType="string" resultType="teacher">
+	<select id="searchTeacher" parameterType="string"
+		resultType="teacher">
 		select
 		tc_id
 		,tc_pw
@@ -43,5 +44,62 @@
 		where
 		tc_id = #{tc_id}
 	</select>
-
+	<insert id="joinStudent" parameterType="student">
+		insert into
+		tpStudent(
+		st_num
+		,st_id
+		,st_pw
+		,st_gender
+		,st_age
+		,st_phone
+		,st_loc
+		,st_lan1
+		,st_lan2
+		,st_lan3
+		)values(
+		st_num_seq.nextval
+		,#{st_id}
+		,#{st_pw}
+		,#{st_gender}
+		,#{st_age}
+		,#{st_phone}
+		,#{st_loc}
+		,#{st_lan1}
+		,#{st_lan2}
+		,#{st_lan3}
+		)
+	</insert>
+	<insert id="joinTeacher" parameterType="teacher">
+		insert into
+		tpTeacher(
+		tc_num
+		,tc_id
+		,tc_pw
+		,tc_gender
+		,tc_age
+		,tc_phone
+		,tc_loc
+		,tc_teachLan
+		,tc_lan1
+		,tc_lan2
+		,tc_lan3
+		,tc_price
+		,tc_intro
+		)values(
+		tc_num_seq.nextval
+		,#{tc_id}
+		,#{tc_pw}
+		,#{tc_gender}
+		,#{tc_age}
+		,#{tc_phone}
+		,#{tc_loc}
+		,#{tc_teachLan}
+		,#{tc_lan1}
+		,#{tc_lan2}
+		,#{tc_lan3}
+		,#{tc_price}
+		,#{tc_intro}
+		)
+	</insert>
 </mapper>

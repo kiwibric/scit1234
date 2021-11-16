@@ -1,6 +1,6 @@
 package com.scit.test43.dao;
 
-import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSession; 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -61,4 +61,27 @@ public class JoinLoginDAO {
 		}	
 		return check;
 	}
+	public int joinStudent(StudentVO student) {
+		int success = 0;
+		try {
+			JoinLoginMapper mapper = session.getMapper(JoinLoginMapper.class);
+			success = mapper.joinStudent(student);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return success;
+	
+		
+	}
+	public int joinTeacher(TeacherVO teacher) {
+		 int success = 0;
+		try {
+			JoinLoginMapper mapper = session.getMapper(JoinLoginMapper.class);
+			success = mapper.joinTeacher(teacher);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return success;
+	}
+	
 }
