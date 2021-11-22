@@ -10,6 +10,10 @@
 <script src='/resources/css/main.js'></script>
  
 
+
+
+
+
 </head>
 
 <body>
@@ -52,7 +56,7 @@
     </script>
     
     <div>
-   <form name="insertSchedule" action="insertSchedule" method="get">
+   <form name="insertSchedule" action="insertSchedule" method="get"  onsubmit="return formCheck();">
    <h3>일정 추가</h3>
      <table>
     
@@ -68,12 +72,12 @@
      </tr>
      <tr>
      	<td>
-     		시작일: <input type="date" name="start">
+     		시작일: <input type="datetime-local" name="start" id="start">
      	</td>
      </tr>
      <tr>
      	<td>
-     		종료일 : <input type="date" name="end">
+     		종료일 : <input type="datetime-local" name="end" id="end">
      	</td>
      	
      </tr>

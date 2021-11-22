@@ -12,8 +12,8 @@
 		select 
    			tc_id
     		,st_id
-  			,tc_start
-  			,tc_end
+  			,TO_char(tc_start, 'YYYY-MM-DD"T"HH24:MI:SS') tc_start
+  			,TO_char(tc_end, 'YYYY-MM-DD"T"HH24:MI:SS') tc_end
  			,title
  		 	,classnames
 		from 
@@ -26,8 +26,8 @@
 		select 
    			tc_id
     		,st_id
-  			,tc_start
-  			,tc_end
+  			,TO_char(tc_start, 'YYYY-MM-DD"T"HH24:MI:SS') tc_start
+  			,TO_char(tc_end, 'YYYY-MM-DD"T"HH24:MI:SS') tc_end
  			,title
  		 	,classnames
 		from 
@@ -37,19 +37,19 @@
 </select>
 <insert id="insertSchedule" parameterType="schedule">
 insert into Tschedule(
-    Tschedule_num   
+   Tschedule_num   
     ,tc_id
     ,st_id
-    ,tc_start    
-    ,tc_end      
+	 ,tc_start
+    ,tc_end
     ,title         
-    ,classnames   
+    ,classnames    
 )values(
     Tschedule_num_seq.nextval
     ,#{tc_id}
     ,#{st_id}
-    ,#{start}
-    ,#{end}
+    ,to_date(#{start}, 'YYYY-MM-DD"T"HH24:MI:SS')
+    ,to_date(#{end}, 'YYYY-MM-DD"T"HH24:MI:SS')
     ,#{title}
     ,#{classnames}
 )
