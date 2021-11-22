@@ -151,7 +151,7 @@ public class JoinLoginController {
 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String join(String member_id, String pw, String gender, String phone, int age, String address, String lan1, String lan2, String lan3, int type, int price, String intro, String teachLan) throws UnsupportedEncodingException {
+	public String join(String member_id, String pw, String gender, String phone, int age, String address, String lan1, String lan2, String lan3, int type, String price, String intro, String teachLan) throws UnsupportedEncodingException {
 		String url = "";
 		StudentVO student = new StudentVO();
 		TeacherVO teacher = new TeacherVO();
@@ -180,7 +180,8 @@ public class JoinLoginController {
 			teacher.setTc_lan1(lan1);
 			teacher.setTc_lan2(lan2);
 			teacher.setTc_lan3(lan3);
-			teacher.setTc_price(price);
+			int price2 = Integer.parseInt(price);
+			teacher.setTc_price(price2);
 			teacher.setTc_intro(intro);
 			int cnt = service.joinTeacher(teacher);
 			session.setAttribute("tcLogin", member_id);
