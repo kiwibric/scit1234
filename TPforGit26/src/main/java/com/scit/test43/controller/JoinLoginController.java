@@ -114,7 +114,9 @@ public class JoinLoginController {
 	@ResponseBody
 	@RequestMapping(value = "/tcCheck", method = RequestMethod.GET)
 	public boolean tcCheck(String userNick) {
+		System.out.println("tccheck"+userNick);
 		boolean check = service.tcCheck(userNick);
+		System.out.println(check);
 		return check;
 	}
 	@ResponseBody

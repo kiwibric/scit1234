@@ -37,6 +37,27 @@ function kakaoLogin(){
 							if (data == true){
 								location.replace("/teacherMypageTemp?userNick="+userNick);
 								//세션으로 로그인 정보 넘겨줘야됨
+							} else{
+								$.ajax({
+									url : "/stCheck",
+									type : "get",
+									dataType : "json",
+									data : {
+										"userNick" : userNick
+									},
+									success : function(data) {
+										console.log("server data : " + data);
+										if (data == true){
+											location.replace("/map?st_id="+userNick);
+										}else{
+											location.replace("/joinForm?userNick="+userNick+"&gender="+gender+"&email="+email+"&image="+image);
+										}
+										
+									},
+									error : function(e) {
+										console.log(e);
+									}
+								});
 							}
 							
 						},
@@ -44,26 +65,7 @@ function kakaoLogin(){
 							console.log(e);
 						}
 					});
-					$.ajax({
-						url : "/stCheck",
-						type : "get",
-						dataType : "json",
-						data : {
-							"userNick" : userNick
-						},
-						success : function(data) {
-							console.log("server data : " + data);
-							if (data == true){
-								location.replace("/map?st_id="+userNick);
-							}else{
-								location.replace("/joinForm?userNick="+userNick+"&gender="+gender+"&email="+email+"&image="+image);
-							}
-							
-						},
-						error : function(e) {
-							console.log(e);
-						}
-					});
+					
 				}
 			});
 		}
@@ -84,9 +86,65 @@ function kakaoLogout() {
     }
   }  
 </script>
+
+<style>
+
+
+body {
+	color: #566787;
+	background: #f5f5f5;
+	font-family: 'Varela Round', sans-serif;
+	font-size: 13px;
+}
+
+.table-wrapper {
+	padding: 10px 5px;
+}
+
+.table-title {
+	padding-bottom: 0px;
+	background: #435d7d;
+	color: #fff; /*제목색*/
+	padding: 10px 20px;
+	border-radius: 3px 3px 0 0;
+}
+
+.table-title h2 {
+	margin: 5px 0 0;
+	font-size: 24px;
+}
+
+table.table tr th, table.table tr td {
+	border-color: #e9e9e9;
+	padding: 12px 5px;
+	vertical-align: middle;
+}
+
+table.table-striped tbody tr:nth-of-type(odd) {
+	background-color: #f4f4f4;
+}
+
+th, td {
+	text-align: center;
+}
+</style>
+
 </head>
 <body>
-	<ul>
+	<div class="table-title">
+		<div class="row">
+			<div class="col-xs-6">
+			<br>
+				<h2>
+					ハイ、<b>センセイ</b>
+				</h2>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="content">
+		<ul>
 		<c:choose>
 			<c:when test="${not empty sessionScope.tcLogin }">
 				<h1>${sessionScope.tcLogin}님환영합니다.</h1>
@@ -113,6 +171,8 @@ function kakaoLogout() {
 			</c:otherwise>
 		</c:choose>
 	</ul>
+	</div>
+	
 </body>
 </html>
 

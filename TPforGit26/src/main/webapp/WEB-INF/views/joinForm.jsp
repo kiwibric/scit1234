@@ -84,9 +84,69 @@ function teacherFunc(num){
 	
 }
 </script>
+
+<style>
+body {
+	color: #566787;
+	background: #f5f5f5;
+	font-family: 'Varela Round', sans-serif;
+	font-size: 13px;
+}
+
+.table-wrapper {
+	padding: 10px 5px;
+}
+
+.table-title {
+	padding-bottom: 0px;
+	background: #435d7d;
+	color: #fff; /*제목색*/
+	padding: 10px 20px;
+	border-radius: 3px 3px 0 0;
+}
+
+.table-title h2 {
+	margin: 5px 0 0;
+	font-size: 24px;
+}
+
+table.table tr th, table.table tr td {
+	border-color: #e9e9e9;
+	padding: 12px 5px;
+	vertical-align: middle;
+}
+
+table.table-striped tbody tr:nth-of-type(odd) {
+	background-color: #f4f4f4;
+}
+
+th, td {
+	text-align: center;
+}
+
+table {
+	border-collapse: seperate;
+	border-spacing: 0 5px;
+	font-size: 15px;
+}
+</style>
+
+
+
 </head>
 <body>
-	<form action="/join" method="post" onsubmit="return memberCheck();">
+	<div class="table-title">
+		<div class="row">
+			<div class="col-xs-6">
+				<br>
+				<h2>
+					ハイ、<b>センセイ</b>
+				</h2>
+			</div>
+		</div>
+	</div>
+
+	<form action="/join" method="post" onsubmit="return memberCheck();" style="margin-left: 20px; margin-top: 20px;">
 		<table>
 			<tr>
 				<td><label>ID</label></td>
@@ -95,8 +155,7 @@ function teacherFunc(num){
 			</tr>
 			<tr>
 				<td><label>PW</label></td>
-				<td><input type="password" id="pw" name="pw">
-				</td>
+				<td><input type="password" id="pw" name="pw"></td>
 			</tr>
 			<tr>
 				<td><label>PW Check</label></td>
@@ -105,7 +164,7 @@ function teacherFunc(num){
 			</tr>
 			<tr>
 				<td><label>性別</label></td>
-				<td><select name="gender" id="gender" style="width: 100px;">
+				<td><select name="gender" id="gender" style="width: 170px;">
 						<option value="m">男性</option>
 						<option value="f">女性</option>
 				</select></td>
@@ -137,7 +196,8 @@ function teacherFunc(num){
 			</tr>
 			<tr>
 				<td><label>身分</label></td>
-				<td><select name="type" id="type" onchange ="teacherFunc(this.value);">
+				<td><select name="type" id="type"
+					onchange="teacherFunc(this.value);" style="width: 170px;">
 						<option value="0">先生</option>
 						<option value="1">学生</option>
 				</select></td>
