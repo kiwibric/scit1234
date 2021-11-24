@@ -3,14 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false"/>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
 	<typeAliases>
 		<typeAlias type="com.scit.test43.vo.TeacherVO" alias="teacher" />
 		<typeAlias type="com.scit.test43.vo.SugangVO" alias="sugang" />
 		<typeAlias type="com.scit.test43.vo.StudentVO" alias="student" />
+		<typeAlias type="com.scit.test43.vo.TscheduleVO" alias="schedule" />
 		<typeAlias type="com.scit.test43.vo.ReviewVO" alias="review" />
 		<typeAlias type="com.scit.test43.vo.CommentVO" alias="comment" />
 		<typeAlias type="com.scit.test43.vo.CommentReplyVO" alias="reply" />
-		<typeAlias type="com.scit.test43.vo.TscheduleVO" alias="schedule" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/teacherMapper.xml" />
@@ -18,7 +22,7 @@
 		<mapper resource="mapper/mypageMapper.xml" />
 		<mapper resource="mapper/reviewMapper.xml" />
 		<mapper resource="mapper/JoinLoginMapper.xml" />
-		<mapper resource="mapper/commentMapper.xml" />
 		<mapper resource="mapper/scheduleMapper.xml" />
+		<mapper resource="mapper/commentMapper.xml" />
 	</mappers>
 </configuration>
