@@ -109,22 +109,24 @@ public class ReviewController {
 	
 	//학생 후기 수정폼 이동
 	@RequestMapping(value = "updateReviewForm", method = RequestMethod.GET)
-	public String updateReviewForm(Model model, int rv_num) {
+	public String updateReviewForm(Model model, int rv_num, String rv_sender) {
 		ReviewVO review = dao.selectReview(rv_num);
 		model.addAttribute("review", review);
+		model.addAttribute("rv_sender", rv_sender);
 		return "updateReviewForm";
 	}
 	//선생님 후기 수정폼 이동
 	@RequestMapping(value = "updateTcReviewForm", method = RequestMethod.GET)
-	public String updateTcReviewForm(Model model, int rv_num) {
+	public String updateTcReviewForm(Model model, int rv_num, String rv_sender) {
 		ReviewVO review = dao.selectReview(rv_num);
 		model.addAttribute("review", review);
+		model.addAttribute("rv_sendner", rv_sender);
 		return "updateTcReviewForm";
 	}
 	
 	//후기 수정
 	@RequestMapping(value="updateReview", method = RequestMethod.POST)
-	public String updateReview(ReviewVO review, String rv_sender) {
+	public String updateReview(ReviewVO review, String rv_sender, HttpSession session) {
 		if (review.getRv_star()==1)
 			review.setRv_star(1);
 		else if (review.getRv_star()==2)
@@ -148,9 +150,14 @@ public class ReviewController {
 		}else {
 			System.out.println("입력 실패");
 		}
-		return "redirect:/";
+		String sg_teacher = (String) session.getAttribute("tcLogin");
+		ArrayList<TeacherVO> teacher = tdao.list();
+		for(TeacherVO t : teacher) {
+			if(t.getTc_id().equals(sg_teacher)) {
+				return "redirect:/teacherMypage";
+			}
+		}
+		return "redirect:/studentMypage";
 	}
-	
-
 	
 }

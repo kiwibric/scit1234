@@ -9,10 +9,28 @@
 <link rel="stylesheet" href="/resources/css/main.css"> 
 <script src='/resources/css/main.js'></script>
  
+<style type="text/css">
+#header{
+	background: #435D7D;
+	padding: 0px;
+	height: 60px;
+	margin-bottom: 20px;
+}
 
+#homeBtn{
+	padding: 0;
+	border: none;
+	background: none;
+}
+
+</style>
 </head>
 
 <body>
+<div id="header">
+	<button id="homeBtn" type="button" onclick="location.href='/'"><img src="resources/images/logo.png"></button>
+	<span style="float:right; color:white; font-size: 50px" >TEACHER MYPAGE</span>
+</div>
 <div id="calendar"></div>
  <script>
   

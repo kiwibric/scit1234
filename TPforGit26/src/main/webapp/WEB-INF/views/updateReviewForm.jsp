@@ -108,7 +108,7 @@ $(function(){
                     <input type="hidden" id="rv_num" name="rv_num" value="${review.rv_num}">
 					<input type="hidden" id="current_star" name="current_star" value="${review.rv_star}">
                     
-                    <input type="submit" class="btn btn-primary" value="수정">
+                    <input type="submit" class="btn btn-primary" value="수정" >
 					<input type="button" class="btn btn-primary" value="취소" onclick="location.href='selectMyReviewForm?rv_sender=${sessionScope.stLogin}'">
                     
                     
