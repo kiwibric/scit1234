@@ -5,7 +5,7 @@
 <html>
     <head>
         <title>投稿</title>
-        <script type="text/javascript" src="/resources/js/jquery-3.6.0.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
         <script src="//cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){

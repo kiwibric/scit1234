@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>게시판</title>
-<script type="text/javascript" src="/resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     
