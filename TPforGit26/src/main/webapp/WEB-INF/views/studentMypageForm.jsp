@@ -122,8 +122,9 @@ div img{
 				<th>별점</th>
 				<th>연락처</th>
 			</tr>
-			
-			<c:forEach var="list1" items="${acceptedSugang}">
+		
+		<c:forEach var="list1" items="${acceptedSugang}">
+			<c:set var="loop_flag" value="false" />
 			<tr>
 				<td>${list1.tc_id}</td>
 				<td>${list1.tc_age}</td>
@@ -138,14 +139,18 @@ div img{
 					</c:when>
 					<c:otherwise>
 						<c:forEach var="list4" items="${selectMyReview }">
-							<c:if test="${list4.rv_target != list1.tc_id}">
-								<td><input type="button" value="후기작성" onclick = "location.href='writeForm?rv_target=${list1.tc_id}&rv_sender=${sessionScope.stLogin}'"></td>
+							<c:if test="${list4.rv_target == list1.tc_id}">
+								<c:set var="loop_flag" value="true" />
 							</c:if>
 						</c:forEach>
+						<c:if test="${not loop_flag }">
+							<td><input type="button" value="후기작성" onclick = "location.href='writeForm?rv_target=${list1.tc_id}&rv_sender=${sessionScope.stLogin}'"></td>
+						</c:if>
 					</c:otherwise>
 				</c:choose>
 			</tr>
-			</c:forEach> 
+		</c:forEach> 	
+			
 			
 		</table>
 		</div><br><br>
