@@ -23,11 +23,11 @@ public class SugangController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/insertSugang", method = RequestMethod.GET)
-	public boolean insertSugang(String tc_id, SugangVO sugang, HttpSession session) {
+	public boolean insertSugang(String tc_id, String st_id, SugangVO sugang, HttpSession session) {
 		
 		//1. 수강신청 테이블 업데이트(학생id와 선생님 id필요)
 		boolean flag = false;
-		
+		System.out.println((String)session.getAttribute("stLogin"));
 		String sg_id = (String)session.getAttribute("stLogin");
 		System.out.println("수강신청 학생아이디 잘 들어가나요?"+sg_id);
 		//임의로 학생 ID를 넣어 놓음(추후 로그인 아이디로 변경 예정)

@@ -20,12 +20,13 @@
 $(function(){
 	$("#contact").on("click", function(){
 		var tc_id = $("#tc_id").val();
-		
+		var st_id = $("#st_id").val();
 		$.ajax({
 			url : "/insertSugang",
 			type: "get",
 			data : {
-				tc_id : tc_id
+				tc_id : tc_id,
+				st_id : st_id
 			},
 			dataType : "json",
 			success : function(data){
@@ -95,6 +96,7 @@ table {
 		<tr><td>できる言語</td><td>${tc.tc_lan1}</td></tr>
 		<tr><td colspan="3">${tc.tc_intro}</td></tr>
 		<tr><td><input type="hidden" id="tc_id" value="${tc.tc_id}"></td></tr>
+		<tr><td><input type="hidden" id="st_id" value="${st_id}"></td></tr>
 		<tr>
 			<td colspan="3">
 				<!-- 로그인한 학생 아이디 -->

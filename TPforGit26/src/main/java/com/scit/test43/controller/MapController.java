@@ -32,6 +32,7 @@ public class MapController {
 	public String map(String st_id, Model model) {
 		StudentVO student = dao.searchStudentOne(st_id);
 		model = model.addAttribute("student", student);
+		session.setAttribute("stLogin", st_id);
 		return "map";
 	
 	}
