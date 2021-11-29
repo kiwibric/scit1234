@@ -66,7 +66,7 @@ div img{
 </head>
 <body>
 <div id="header">
-	<button id="homeBtn" type="button" onclick="location.href='/'"><img src="resources/images/logo.png"></button>
+	<button id="homeBtn" type="button" onclick="location.href='/'"><img src="resources/images/lg.png"></button>
 	<span style="float:right; color:white; font-size: 50px" >TEACHER MYPAGE</span>
 </div>
 <div id="container">
