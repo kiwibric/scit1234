@@ -21,7 +21,7 @@
 		from
 		tpTeacher
 		order by
-		tc_avg desc
+		tc_avg asc
 	</select>
 	
 	<select id="infoWindow" parameterType="string" resultType="teacher">
