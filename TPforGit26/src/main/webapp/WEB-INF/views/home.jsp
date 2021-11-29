@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>[메인화면]</title>
+<title>ハイ、センセイ</title>
 <script type="text/javascript" src="/resources/js/jquery-3.6.0.js"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script>
@@ -157,7 +157,7 @@ th, td {
 				<a href="map?st_id=${sessionScope.stLogin }">MAP</a>
 			</c:when>
 			<c:otherwise>
-			<li><a href="loginForm">로그인</a></li>
+			<!-- <li><a href="loginForm">로그인</a></li> -->
 				<!-- <li><a href="${naver_url }"><img width="300" src="/resources/images/naver.png" alt="naver"></a>
 				<li><a href="${google_url }"><img width="300" src="/resources/images/google.png" alt="google"></a> -->
 				<table width="70%" align="left">

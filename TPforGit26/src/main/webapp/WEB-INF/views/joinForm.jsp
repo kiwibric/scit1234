@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>ハイ、センセイ</title>
 <meta charset="UTF-8">
 <script type="text/javascript" src="/resources/js/jquery-3.6.0.js"></script>
 <script>
