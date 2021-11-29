@@ -15,7 +15,7 @@
                  
                 $("#boardList").click(function(){
                 	if ($("#list_target").val().trim() != "") {
-	                    location.href = "/board/list?target=${list[0].target}";
+	                    location.href = "/board/list?target=${tc.tc_id}";
 					}
                 	else location.href = "/board/list?target=${boardView.target}";
                 });
@@ -46,7 +46,7 @@
                             </c:if>
                             
                             <c:choose>
-                            	<c:when test="${list[0].target != null}">
+                            	<c:when test="${tc.tc_id != null}">
                             	target		: $("#list_target").val(),
                             	</c:when>
                             	<c:when test="${boardView.target != null}">
@@ -71,7 +71,7 @@
                             if(retVal.code == "OK") {
                                 alert(retVal.message);
                                 if ($("#list_target").val().trim() != "") {
-            	                    location.href = "/board/list?target=${list[0].target}";
+            	                    location.href = "/board/list?target=${tc.tc_id}";
             					}
                             	else location.href = "/board/list?target=${boardView.target}";  
                             } else {
@@ -92,7 +92,7 @@
         </style>
     </head>
     <body>
-    	<input type="hidden" id="list_target" name="list_target" value="${list[0].target }">
+    	<input type="hidden" id="list_target" name="list_target" value="${tc.tc_id }">
     	<input type="hidden" id="boardView_target" name="boardView_target" value="${boardView.target }">
         <input type="hidden" id="cmt_id" name="cmt_id" value="${boardView.cmt_id}" />
         <div align="center">

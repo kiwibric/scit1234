@@ -35,6 +35,12 @@ public class TeacherDAO {
 		StudentVO student = mapper.searchStudent(st_id);
 		return student;
 	}
+	
+	public TeacherVO searchTeacherOne(String target) {
+		JoinLoginMapper mapper = session.getMapper(JoinLoginMapper.class);
+		TeacherVO tc = mapper.searchTeacher(target);
+		return tc;
+	}
 
 	
 }

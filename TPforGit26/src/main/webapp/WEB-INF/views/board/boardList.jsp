@@ -81,7 +81,7 @@ th {
 	</div>
 	
 	<div align="center">
-		<button type="button" id="write" class="write" board_target="${list[0].target}">書き込む</button>
+		<button type="button" id="write" class="write" board_target="${tc.tc_id}">書き込む</button>
 		<table border="1" width="1200px" class='table table-striped'>
 			<tr>
 				<th width="50px">No.</th>

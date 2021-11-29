@@ -19,6 +19,7 @@ import com.scit.test43.dao.TeacherDAO;
 import com.scit.test43.service.CommentService;
 import com.scit.test43.util.PageNavigator;
 import com.scit.test43.vo.CommentVO;
+import com.scit.test43.vo.TeacherVO;
 
 @Controller
 public class CommentController {
@@ -40,6 +41,8 @@ public class CommentController {
 			,@RequestParam(name = "searchText", defaultValue = "") String searchText
 			,@RequestParam(name = "page", defaultValue="1") int page) {
 		
+		// 선생님 조회
+		TeacherVO tc = dao.searchTeacherOne(target);
 		// DB가서 전체글 수 조회
 		int totalCount = service.selectContentCnt(target, searchText);
 		// 페이징 객체 생성
@@ -48,6 +51,7 @@ public class CommentController {
 		// 게시글 목록 조회
 		ArrayList<CommentVO> list = service.commentList(target, searchText, navi.getStartRecord(), navi.getCountPerPage());
 		
+		model.addAttribute("tc", tc);
 		model.addAttribute("list", list);
 		model.addAttribute("navi", navi);
 		model.addAttribute("searchText", searchText);
@@ -61,6 +65,10 @@ public class CommentController {
     		@RequestParam(name = "cmt_id", defaultValue = "")String cmt_id
     		,@RequestParam(name = "target", defaultValue = "")String target) {
  
+    	// 선생님 조회
+    	TeacherVO tc = dao.searchTeacherOne(target);
+    	model.addAttribute("tc", tc);
+    	
         //	Referer Check
         String Referer = (String)request.getHeader("referer");
  
