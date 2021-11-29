@@ -136,7 +136,8 @@ th, td {
 			<div class="col-xs-6">
 			<br>
 				<h2>
-					ハイ、<b>センセイ</b>
+					<!-- ハイ、<b>センセイ</b> -->
+					　
 				</h2>
 			</div>
 		</div>
@@ -156,16 +157,14 @@ th, td {
 				<a href="map?st_id=${sessionScope.stLogin }">MAP</a>
 			</c:when>
 			<c:otherwise>
-				<li><a href="loginForm">로그인</a></li>
-				<li><a href="joinForm">join</a></li>
 				<!-- <li><a href="${naver_url }"><img width="300" src="/resources/images/naver.png" alt="naver"></a>
 				<li><a href="${google_url }"><img width="300" src="/resources/images/google.png" alt="google"></a> -->
-				<br>
-				<a href="javascript:kakaoLogin();"><img width="300"
-					src="/resources/images/certi_kakao_login.png"></a>
-				<li onclick="kakaoLogout();"><a href="javascript:void(0)">
-						<span>카카오 로그아웃</span>
-				</a></li>
+				<table width="70%" align="left">
+					<tr><td><img src="/resources/images/pt.jpg" width="45%"></td></tr><tr>
+					<td><a href="javascript:kakaoLogin();"><img width="300"
+					src="/resources/images/certi_kakao_login.png"></a></td></tr>
+				</table>
+				
 
 
 			</c:otherwise>
