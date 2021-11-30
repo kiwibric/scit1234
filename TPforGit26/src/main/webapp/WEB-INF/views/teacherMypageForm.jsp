@@ -81,7 +81,8 @@ div img{
  		<button onclick="location.href='updateMyInfoForm'" class="btn btn-secondary btn-lg" style="margin-bottom: 5px">정보 수정</button><br>
 		<!-- 후기관리 버튼 -->
 		<button onclick="location.href='selectTcMyReviewForm?rv_sender=${sessionScope.tcLogin}'" style="margin-bottom: 5px"class="btn btn-secondary btn-lg">후기 관리</button>
-		<button onclick="location.href='TscheduleForm?tc_id=${sessionScope.tcLogin}'" class="btn btn-secondary btn-lg">스케쥴 관리</button>
+		<button onclick="location.href='TscheduleForm?tc_id=${sessionScope.tcLogin}'" style="margin-bottom: 5px" class="btn btn-secondary btn-lg">스케쥴 관리</button>
+		<button onclick="location.href='/board/list?target=${sessionScope.tcLogin}'" style="margin-bottom: 5px" class="btn btn-secondary btn-lg">Q&A Board</button>
  	</div>
 
 	<div id="information">
