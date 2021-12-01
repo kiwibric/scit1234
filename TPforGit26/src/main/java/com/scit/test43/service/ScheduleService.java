@@ -26,8 +26,6 @@ public class ScheduleService {
 		String tc_id = (String) session.getAttribute("tcLogin");
 		ArrayList<TscheduleVO> scheduleList = dao.scheduleList(tc_id);
 		 
-		System.out.println("여기까지 오나요?service"+scheduleList);
-		System.out.println("a");
 		return scheduleList;
 	}
 	
@@ -35,8 +33,6 @@ public class ScheduleService {
 		String st_id = (String) session.getAttribute("stLogin");
 		ArrayList<TscheduleVO> scheduleList = dao.SscheduleList(st_id);
 		 
-		System.out.println("여기까지 오나요?service"+scheduleList);
-		System.out.println("a");
 		return scheduleList;
 	}
 }

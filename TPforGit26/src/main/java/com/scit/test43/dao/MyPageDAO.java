@@ -38,8 +38,8 @@ public class MyPageDAO {
 		return acceptSugangList;
 	}
 
-	public int tc_starAvg(String sg_teacher) {
-		int tc_starAvg = 0;
+	public double tc_starAvg(String sg_teacher) {
+		double tc_starAvg = 0;
 		try {
 			MyPageMapper mapper = session.getMapper(MyPageMapper.class);
 			tc_starAvg = mapper.tc_starAvg(sg_teacher);
@@ -85,19 +85,17 @@ public class MyPageDAO {
 
 	public int updateMyInfo(TeacherVO teacher) {
 		int cnt = 0; 
-		System.out.println("여기까지 오나요?");
 		try {
 			MyPageMapper mapper = session.getMapper(MyPageMapper.class);
 			cnt = mapper.updateMyInfo(teacher);
-			System.out.println("여기는 오나요22222??");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return cnt;
 	}
 
-	public int st_starAvg(String sg_student) {
-		int sg_starAvg = 0;
+	public double st_starAvg(String sg_student) {
+		double sg_starAvg = 0;
 		try {
 			MyPageMapper mapper = session.getMapper(MyPageMapper.class);
 			sg_starAvg = mapper.sg_starAvg(sg_student);
@@ -155,11 +153,9 @@ public class MyPageDAO {
 
 	public int updateStMyInfo(StudentVO student) {
 		int cnt = 0; 
-		System.out.println("여기까지 오나요?");
 		try {
 			MyPageMapper mapper = session.getMapper(MyPageMapper.class);
 			cnt = mapper.updateStMyInfo(student);
-			System.out.println("여기는 오나요22222??");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

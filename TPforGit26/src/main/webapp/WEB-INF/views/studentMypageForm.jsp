@@ -64,7 +64,7 @@ div img{
 </head>
 <body>
 <div id="header">
-	<button id="homeBtn" type="button" onclick="location.href='/'"><img src="resources/images/lg.png"></button>
+	<button id="homeBtn" type="button" onclick="location.href='/map?st_id=${sessionScope.stLogin}'"><img src="resources/images/lg.png"></button>
 	<span style="float:right; color:white; font-size: 50px" >STUDENT MYPAGE</span>
 </div>
 <div id="container">
@@ -77,9 +77,8 @@ div img{
  	</div>
  	<div id="sidebar">
  		<button onclick="location.href='updateStMyInfoForm'" class="btn btn-secondary btn-lg" style="margin-bottom: 5px">정보 수정</button><br>
-		<!-- 후기관리 버튼 -->
-		<button onclick="location.href='selectMyReviewForm?rv_sender=${sessionScope.stLogin}'" class="btn btn-secondary btn-lg">후기 관리</button>
-				<button onclick="location.href='SscheduleForm?tc_id=${sessionScope.stLogin}'" class="btn btn-secondary btn-lg">스케쥴 관리</button>
+		<button onclick="location.href='selectMyReviewForm?rv_sender=${sessionScope.stLogin}'" style="margin-bottom: 5px" class="btn btn-secondary btn-lg">후기 관리</button>
+		<button onclick="location.href='SscheduleForm?tc_id=${sessionScope.stLogin}'" style="margin-bottom: 5px" class="btn btn-secondary btn-lg">스케쥴 관리</button>
  	</div>
 	
 	<div id="information">
@@ -97,7 +96,7 @@ div img{
 				<th>별점</th>
 			
 			</tr>
-			<%-- <c:if test="${newStudent !=null }">새로운 데이터 있음</c:if> --%>
+
 			<c:forEach var="list" items="${applySugang}">
 			<tr>
 				<td>${list.tc_id}</td>
@@ -132,7 +131,7 @@ div img{
 				<td>${list1.tc_loc}</td>
 				<td>${list1.tc_avg}</td>
 				<td>${list1.tc_phone}</td>
-				<!-- 후기작성 버튼 (작성된 후기가 없을 경우) -->
+
 				<c:choose>
 					<c:when test="${ReviewCount == 0}">
 						<td><input type="button" value="후기작성" onclick = "location.href='writeForm?rv_target=${list1.tc_id}&rv_sender=${sessionScope.stLogin}'"></td>
@@ -182,7 +181,6 @@ div img{
 		</table>
 		</div> <br><br>
 	
-		<!-- 내가 받은 후기 보기 -->
 		<div>
 		<img id ="ticon" src="resources/images/pencil.png" align="middle">내가 받은 후기 목록</img>
 		<table id="tb1">

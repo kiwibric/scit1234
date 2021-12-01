@@ -26,43 +26,6 @@
 
 </style>
 <script type="text/javascript">
-/* function formCheck(){
-	var tc_id = document.getElementById("tc_id")
-	var tc_intro = document.getElementById("tc_intro")
-	var tc_teachLan = document.getElementById("tc_teachLan")
-	var tc_lan1 = document.getElementById("tc_lan1")
-	var tc_loc = document.getElementById("tc_loc")
-	var tc_price = document.getElementById("tc_price")
-	
-	
-	if (tc_id.value == ''){
-		alert("수정할 아이디를 입력해 주세요")
-		return false;
-	}
-	if (tc_intro.value == ''){
-		alert("수정할 소개글을 입력해 주세요")
-		return false;
-	}
-	if (tc_teachLan.value == ''){
-		alert("수정할 강의 언어를 입력해 주세요")
-		return false;
-	}
-	if (tc_lan1.value == ''){
-		alert("수정할 가능언어 를 입력해 주세요")
-		return false;
-	}
-	if (tc_loc.value == ''){
-		alert("수정할 지역를 입력해 주세요")
-		return false;
-	}
-	if (tc_price.value == ''){
-		alert("수정할 가격를 입력해 주세요")
-		return false;
-	}
-	
-	return true;
-
-} */
 
 
 
@@ -89,12 +52,7 @@
                         <h2 class="text-3xl text-green-400 font-semibold">정보수정</h2>
                     </div>
                     
-                   <!--  <span>Customer Information</span>
-                    <div class="relative pb-5">
-                    	 <input type="text" name="mail" class="border rounded h-10 w-full focus:outline-none focus:border-green-200 px-2 mt-2 text-sm" placeholder="E-mail"> 
-                    	 <span class="absolute text-blue-500 right-2 top-4 font-medium text-sm">Log out</span> 
-                    </div> 
-                     -->
+         
                     <span>momo님의 정보입니다</span>
                     
                      

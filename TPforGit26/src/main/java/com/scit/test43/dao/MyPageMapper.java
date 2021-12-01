@@ -11,7 +11,7 @@ public interface MyPageMapper {
 	//수락한 수강신청 리스트
 	ArrayList<StudentVO> acceptSugangList(String sg_teacher);
 	//별점
-	int tc_starAvg(String sg_teacher);
+	double tc_starAvg(String sg_teacher);
 	//수락시 sg_accept 업데이트
 	int acceptSugang(int sg_num);
 	//거절시 sg_accept 2 업데이트
@@ -25,7 +25,7 @@ public interface MyPageMapper {
 	//////////////////////////////////////////////////////////
 	
 	//학생 별정 
-	int sg_starAvg(String sg_student);
+	double sg_starAvg(String sg_student);
 	//학생이 신청한 강의 목록
 	ArrayList<TeacherVO> applySugang(String sg_student);
 	//수락된 강의 선생님 정보

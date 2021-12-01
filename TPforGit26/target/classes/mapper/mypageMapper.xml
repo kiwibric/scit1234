@@ -47,7 +47,7 @@ and
 </select>
 
 
-<select id="tc_starAvg" parameterType="String" resultType="int">
+<select id="tc_starAvg" parameterType="String" resultType="double">
 select
     tc_avg
 from
@@ -162,7 +162,7 @@ and
 </select>
 
 
-<select id="sg_starAvg" parameterType="String" resultType="int">
+<select id="sg_starAvg" parameterType="String" resultType="double">
 select
     st_avg
 from

@@ -43,7 +43,7 @@ public class MyPageController {
 	model.addAttribute("tc_pic", tc_pic);
 	
 	//선생님의 별점
-	int tc_starAvg = dao.tc_starAvg(sg_teacher);
+	double tc_starAvg = dao.tc_starAvg(sg_teacher);
 	model.addAttribute("tc_starAvg", tc_starAvg);
 		
 	
@@ -140,7 +140,7 @@ public class MyPageController {
 		System.out.println("학생 로그인 정보"+sg_student);
 		
 		//학생의 별점
-		int st_starAvg = dao.st_starAvg(sg_student);
+		double st_starAvg = dao.st_starAvg(sg_student);
 		model.addAttribute("st_starAvg", st_starAvg);
 			
 		

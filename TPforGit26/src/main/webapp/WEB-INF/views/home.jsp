@@ -16,7 +16,7 @@ function kakaoLogin(){
 			console.log(authObj);
 			window.Kakao.API.request({
 				url:'/v2/user/me', 
-				success: res=>{//각각의 테이블에 접근해서 중복확인 후 처리
+				success: res=>{
 					const kakao_account = res.kakao_account;
 					console.log(kakao_account.profile.profile_image_url);
 					var userNick = kakao_account.profile.nickname;
@@ -35,7 +35,6 @@ function kakaoLogin(){
 							console.log("server data : tc" + data);
 							if (data == true){
 								location.replace("/teacherMypageTemp?userNick="+userNick);
-								//세션으로 로그인 정보 넘겨줘야됨
 							} else{
 								$.ajax({
 									url : "/stCheck",
@@ -135,14 +134,12 @@ th, td {
 			<div class="col-xs-6">
 			<br>
 				<h2>
-					<!-- ハイ、<b>センセイ</b> -->
 					　
 				</h2>
 			</div>
 		</div>
 	</div>
 	
-
 	<div id="content">
 		<ul>
 		<c:choose>
@@ -162,8 +159,6 @@ th, td {
 					src="/resources/images/certi_kakao_login.png"></a></td></tr>
 				</table>
 				
-
-
 			</c:otherwise>
 		</c:choose>
 	</ul>

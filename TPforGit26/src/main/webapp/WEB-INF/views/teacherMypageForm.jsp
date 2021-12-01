@@ -79,7 +79,6 @@ div img{
  	</div>
  	<div id="sidebar">
  		<button onclick="location.href='updateMyInfoForm'" class="btn btn-secondary btn-lg" style="margin-bottom: 5px">정보 수정</button><br>
-		<!-- 후기관리 버튼 -->
 		<button onclick="location.href='selectTcMyReviewForm?rv_sender=${sessionScope.tcLogin}'" style="margin-bottom: 5px"class="btn btn-secondary btn-lg">후기 관리</button>
 		<button onclick="location.href='TscheduleForm?tc_id=${sessionScope.tcLogin}'" style="margin-bottom: 5px" class="btn btn-secondary btn-lg">스케쥴 관리</button>
 		<button onclick="location.href='/board/list?target=${sessionScope.tcLogin}'" style="margin-bottom: 5px" class="btn btn-secondary btn-lg">Q&A Board</button>
@@ -98,7 +97,7 @@ div img{
 					<th>지역</th>
 					<th>별점</th>
 				</tr>
-				<%-- <c:if test="${newStudent !=null }">새로운 데이터 있음</c:if> --%>
+
 				<c:forEach var="list" items="${newStudent}">
 				<tr>
 					<td>${list.sg_num}</td>
@@ -135,7 +134,7 @@ div img{
 				<td>${list1.st_loc}</td>
 				<td>${list1.st_avg}</td>
 				<td>${list1.st_phone}</td>
-				<!-- 후기작성 버튼 (작성된 후기가 없을 경우) -->
+
 				<c:choose>
 					<c:when test="${ReviewCount == 0}">
 						<td><input type="button" value="후기작성" onclick = "location.href='writeForm?rv_target=${list1.st_id}&rv_sender=${sessionScope.tcLogin}'"></td>
@@ -157,7 +156,6 @@ div img{
 		</table>
 		</div><br><br>
 		
-		<!-- 내가 받은 후기 보기 -->
 		<div>
 		<img id ="ticon" src="resources/images/pencil.png" align="middle">내가 받은 후기 목록</img>
 		<table id="tb1">

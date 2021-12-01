@@ -112,8 +112,6 @@ $(function(){
 					<input type="button" class="btn btn-primary" value="취소" onclick="location.href='selectMyReviewForm?rv_sender=${sessionScope.stLogin}'">
                     
                     
-                     <!-- <button type="submit" >입력</button>
-                      <button type="button" class="btn btn-primary" onclick="location.href='/'">취소</button> -->
                 </form>
             </div> <!-- /.col-md-8 -->
         </div> <!-- /.row -->

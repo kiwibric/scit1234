@@ -113,9 +113,9 @@ $(function(){
                     
                     
                 </form>
-            </div> <!-- /.col-md-8 -->
-        </div> <!-- /.row -->
-    </div> <!-- /.container -->
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>

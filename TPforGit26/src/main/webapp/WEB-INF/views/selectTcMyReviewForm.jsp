@@ -55,7 +55,6 @@
                     <div class="comment-text w-100">
                         <h6 class="font-medium">${list.rv_target }</h6> <span class="m-b-15 d-block">${list.rv_review }</span>
                         <div class="comment-footer"> <span class="text-muted float-right">내가 준 별점 : ${list.rv_star }</span> 
-                        <!-- <button type="button" class="btn btn-cyan btn-sm">수정</button> -->
                          <button type="button" class="button button1"   onclick="location.href='updateTcReviewForm?rv_num=${list.rv_num}'">수정</button>
                           <button type="button" class="button button1" onclick="location.href='deleteReview?rv_num=${list.rv_num}&rv_sender=${list.rv_sender }'">삭제</button> </div>
                     </div>
