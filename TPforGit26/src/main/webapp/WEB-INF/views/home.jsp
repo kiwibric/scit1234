@@ -11,7 +11,6 @@ window.Kakao.init("70c694b81b704b2c7e731d265ba97a3a");
 
 function kakaoLogin(){
 	window.Kakao.Auth.login({
-		//redirectUri: 'http://localhost:8888/joinForm/',
 		scope:'profile_nickname, gender, account_email, profile_image',
 		success: function(authObj){
 			console.log(authObj);
@@ -157,9 +156,6 @@ th, td {
 				<a href="map?st_id=${sessionScope.stLogin }">MAP</a>
 			</c:when>
 			<c:otherwise>
-			<!-- <li><a href="loginForm">로그인</a></li> -->
-				<!-- <li><a href="${naver_url }"><img width="300" src="/resources/images/naver.png" alt="naver"></a>
-				<li><a href="${google_url }"><img width="300" src="/resources/images/google.png" alt="google"></a> -->
 				<table width="70%" align="left">
 					<tr><td><img src="/resources/images/pt.jpg" width="45%"></td></tr><tr>
 					<td><a href="javascript:kakaoLogin();"><img width="300"

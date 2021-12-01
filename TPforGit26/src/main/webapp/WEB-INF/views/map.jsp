@@ -20,10 +20,6 @@
 <script type="text/javascript" src="/resources/js/jquery-3.6.0.js"></script>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e4dc7d49f044b282f847f02a4d57ea5e&libraries=services"></script>
-<!-- 해야할 일:
-필터 만들기 : 필터링 하는거 HTML로 만들고, 그 필터 적용하는 버튼 누르면 Ajax가 필터에서필터링 data를 선별해서 셀렉트해옴
-그러면 아마 자동으로 핀 나올듯.
-핀 클릭하면 센세들 정보 열람이 가능하게 만들어야됨.   -->
 <script type="text/javascript">
 	$(function() {
 
@@ -185,7 +181,8 @@
 																		var popup = window
 																				.open(
 																						"/infoWindow?id="
-																								+ value.tc_id +"+${student.st_id }",
+																								+ value.tc_id
+																								+ "+${student.st_id }",
 																						"info",
 																						"width=550px,height=600px");
 
@@ -272,7 +269,7 @@ th, td {
 				<!--마이페이지로 화면 전환(홈화면 구성시 이동 예정) 선생님은 로그인한 경우 바로 마이페이지로 이동 학생은 따로 버튼 구성 예정 -->
 				<a href="studentMypage">My Page</a><br>
 				<h2>
-					ハイ、<b>センセイ</b> 
+					ハイ、<b>センセイ</b>
 				</h2>
 			</div>
 		</div>
@@ -304,11 +301,13 @@ th, td {
 							<option value="gen4">40代</option>
 							<option value="gen5">50代</option>
 							<option value="gen6">60代以上</option>
-					</select></td><td></td>
+					</select></td>
+					<td></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="text" class="form-control form-control-lg"
-						id="lanSel" placeholder="言語" style="width: 198px;"></td>
+					<td colspan="2"><input type="text"
+						class="form-control form-control-lg" id="lanSel" placeholder="言語"
+						style="width: 198px;"></td>
 					<td><input type="button" id="searchLan" value="Search"
 						class="btn btn-outline-dark btn btn-secondary btn-lg"
 						onclick="filter();"></td>

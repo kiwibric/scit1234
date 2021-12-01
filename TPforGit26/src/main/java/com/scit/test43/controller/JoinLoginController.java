@@ -55,58 +55,6 @@ public class JoinLoginController {
 		return service.login(account);
 	}
 	
-	@RequestMapping(value = "/auth/{snsService}/callback", 
-			method = { RequestMethod.GET, RequestMethod.POST})
-	public String snsLoginCallback(@PathVariable String snsService,
-			Model model, @RequestParam String code, HttpSession session) throws Exception {
-		
-		SnsValue sns = null;
-		if (StringUtils.equals("naver", snsService))
-			sns = naverSns;
-		else
-			sns = googleSns;
-		
-		// 1. code를 이용해서 access_token 받기
-		// 2. access_token을 이용해서 사용자 profile 정보 가져오기
-		SNSLogin snsLogin = new SNSLogin(sns);
-		
-		User snsUser = snsLogin.getUserProfile(code); // 1,2번 동시
-		System.out.println("Profile>>" + snsUser);
-		
-		// 3. DB 해당 유저가 존재하는 체크 (googleid, naverid 컬럼 추가)
-//		User user = service2.getBySns(snsUser);
-//		if (user == null) {
-//			model.addAttribute("result", "존재하지 않는 사용자입니다. 가입해 주세요.");
-//			
-//			//미존재시 가입페이지로!!
-//			
-//		} else {
-//			model.addAttribute("result", user.getUname() + "님 반갑습니다.");
-//			
-			// 4. 존재시 강제로그인
-//			session.setAttribute(SessionNames.LOGIN, user);
-//		}
-		
-		
-		return "loginResult";
-	}
-	
-	@RequestMapping(value = "/login2", method = RequestMethod.GET)
-	public void login2(Model model) throws Exception {
-		
-		SNSLogin snsLogin = new SNSLogin(naverSns);
-		model.addAttribute("naver_url", snsLogin.getNaverAuthURL());
-		
-//		SNSLogin googleLogin = new SNSLogin(googleSns);
-//		model.addAttribute("google_url", googleLogin.getNaverAuthURL());
-		
-		/* 구글code 발행을 위한 URL 생성 */
-		OAuth2Operations oauthOperations = googleConnectionFactory.getOAuthOperations();
-		String url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, googleOAuth2Parameters);
-		model.addAttribute("google_url", url);
-	}
-	
-
 	@RequestMapping(value = "/loginForm", method = RequestMethod.GET)
 	public String loginForm() {
 		return "/loginForm";
