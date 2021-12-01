@@ -34,17 +34,6 @@ public class JoinLoginController {
 	
 	@Autowired
 	private HttpSession session;
-	@Inject
-	private SnsValue naverSns;
-	
-	@Inject
-	private SnsValue googleSns;
-	
-	@Inject
-	private GoogleConnectionFactory googleConnectionFactory;
-	
-	@Inject
-	private OAuth2Parameters googleOAuth2Parameters;
 	
 	@Autowired
 	private JoinLoginService service;
@@ -55,6 +44,7 @@ public class JoinLoginController {
 		return service.login(account);
 	}
 	
+
 	@RequestMapping(value = "/loginForm", method = RequestMethod.GET)
 	public String loginForm() {
 		return "/loginForm";
