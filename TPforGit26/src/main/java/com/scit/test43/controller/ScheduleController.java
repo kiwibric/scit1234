@@ -38,15 +38,6 @@ public class ScheduleController {
 	
 	@RequestMapping(value = "/Tschedule", method = RequestMethod.GET)
 	public @ResponseBody ArrayList<TscheduleVO> Tschedule() {
-		/*
-		 * String tc_id = (String) session.getAttribute("tcLogin");
-		 * System.out.println("선생님 로그인 정보"+tc_id);
-		 * 
-		 * 
-		 * ArrayList<TscheduleVO> scheduleList = dao.scheduleList(tc_id);
-		 * model.addAttribute("scheduleList", scheduleList);
-		 * System.out.println("스케줄 리스트"+scheduleList);
-		 */
 		ArrayList<TscheduleVO> list = service.scheduleList();
 		System.out.println("b");
 		return list;

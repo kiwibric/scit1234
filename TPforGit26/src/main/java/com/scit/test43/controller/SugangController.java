@@ -25,12 +25,12 @@ public class SugangController {
 	@RequestMapping(value = "/insertSugang", method = RequestMethod.GET)
 	public boolean insertSugang(String tc_id, String st_id, SugangVO sugang, HttpSession session) {
 		
-		//1. 수강신청 테이블 업데이트(학생id와 선생님 id필요)
+		//1. 수강신청 테이블 업데이트
 		boolean flag = false;
 		System.out.println((String)session.getAttribute("stLogin"));
 		String sg_id = (String)session.getAttribute("stLogin");
 		System.out.println("수강신청 학생아이디 잘 들어가나요?"+sg_id);
-		//임의로 학생 ID를 넣어 놓음(추후 로그인 아이디로 변경 예정)
+	
 		sugang.setSg_student(sg_id);
 		sugang.setSg_teacher(tc_id);		
 		
@@ -46,7 +46,7 @@ public class SugangController {
 			flag = false;
  		}	
 		
-		//2. 선생님 테이블 Request정보 0을 1로 바꿔준다(학생id와 선생님 id 필요)
+		//2. 선생님 테이블 Request정보 0을 1로 바꿔준다
 		int updateTcReq = dao.TcReq(sugang);
 		if(updateTcReq != 0) {
 			System.out.println("선생님 Request 업데이트 성공");

@@ -22,8 +22,7 @@ public interface MyPageMapper {
 	int updateMyInfo(TeacherVO teacher);
 	
 	
-	//////////////////////////////////////////////////////////
-	
+
 	//학생 별정 
 	double sg_starAvg(String sg_student);
 	//학생이 신청한 강의 목록
